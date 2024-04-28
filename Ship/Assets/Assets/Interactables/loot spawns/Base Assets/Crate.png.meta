@@ -1,13 +1,13 @@
 fileFormatVersion: 2
-guid: 5fdf218394584e84ca804f13546890d5
+guid: 02b11e46f0e8f874b9bd524914992db6
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6888898294195568640
-    second: fish3_0
+      213: -1362058913294850930
+    second: Crate_0
   - first:
-      213: -2087613372531806563
-    second: fish3_1
+      213: 7915073754930829435
+    second: Crate_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -129,13 +129,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: fish3_0
+      name: Crate_0
       rect:
         serializedVersion: 2
-        x: 1583
-        y: 1185
-        width: 1075
-        height: 1439
+        x: 1310
+        y: 1194
+        width: 235
+        height: 71
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -143,20 +143,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 000cda81087b560a0800000000000000
-      internalID: -6888898294195568640
+      spriteID: e84e7e582aef81de0800000000000000
+      internalID: -1362058913294850930
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fish3_1
+      name: Crate_1
       rect:
         serializedVersion: 2
-        x: 2312
-        y: 854
-        width: 1075
-        height: 1439
+        x: 1576
+        y: 1136
+        width: 2226
+        height: 1109
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -164,8 +164,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d9ee2e5c2be4703e0800000000000000
-      internalID: -2087613372531806563
+      spriteID: b785bade4adf7dd60800000000000000
+      internalID: 7915073754930829435
       vertices: []
       indices: 
       edges: []
