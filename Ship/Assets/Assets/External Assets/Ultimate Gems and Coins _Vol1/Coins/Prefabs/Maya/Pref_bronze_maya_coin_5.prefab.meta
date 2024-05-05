@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 4619b7c7010a7024498647635fb3b754
+labels:
+- Ancient
+- Antique
+- Bronze
+- Coin
+- Maya
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 125635
+  packageName: Ultimate Gems and Coins Pack
+  packageVersion: 1.0
+  assetPath: Assets/Ultimate Gems and Coins _Vol1/Coins/Prefabs/Maya/Pref_bronze_maya_coin_5.prefab
+  uploadId: 618795

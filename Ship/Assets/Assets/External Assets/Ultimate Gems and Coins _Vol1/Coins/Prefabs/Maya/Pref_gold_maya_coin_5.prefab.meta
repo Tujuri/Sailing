@@ -1,0 +1,20 @@
+fileFormatVersion: 2
+guid: ed21d8d84af1e6a4bb894ae3d938bc6e
+labels:
+- Coin
+- Gold
+- Lowpoly
+- Maya
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 125635
+  packageName: Ultimate Gems and Coins Pack
+  packageVersion: 1.0
+  assetPath: Assets/Ultimate Gems and Coins _Vol1/Coins/Prefabs/Maya/Pref_gold_maya_coin_5.prefab
+  uploadId: 618795

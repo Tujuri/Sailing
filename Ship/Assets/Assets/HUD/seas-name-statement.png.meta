@@ -132,12 +132,12 @@ TextureImporter:
       name: seas-name-statement_0
       rect:
         serializedVersion: 2
-        x: 1208
-        y: 264
+        x: 1204
+        y: 251
         width: 2908
-        height: 2967
+        height: 3170
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -149,38 +149,18 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: seas-name-statement_1
-      rect:
-        serializedVersion: 2
-        x: 2325
-        y: 3174
-        width: 628
-        height: 225
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: e7a40fddc41223300800000000000000
-      internalID: 230283144974060158
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 98b39af909d9f6546b39015972dc9644
     internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      seas-name-statement_0: 4494464914510517686
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

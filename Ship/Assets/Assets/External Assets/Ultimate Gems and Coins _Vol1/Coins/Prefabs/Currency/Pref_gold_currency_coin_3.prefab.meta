@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: 41380d586ab48cf46ba8e085426aaf11
+labels:
+- Coin
+- Gold
+- Lowpoly
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 125635
+  packageName: Ultimate Gems and Coins Pack
+  packageVersion: 1.0
+  assetPath: Assets/Ultimate Gems and Coins _Vol1/Coins/Prefabs/Currency/Pref_gold_currency_coin_3.prefab
+  uploadId: 618795

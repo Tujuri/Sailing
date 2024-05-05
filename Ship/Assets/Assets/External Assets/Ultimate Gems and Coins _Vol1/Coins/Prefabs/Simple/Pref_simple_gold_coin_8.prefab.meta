@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: 73a1c372c3372ea42bdd3c99f31bb66d
+labels:
+- Coin
+- Gold
+- Lowpoly
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 125635
+  packageName: Ultimate Gems and Coins Pack
+  packageVersion: 1.0
+  assetPath: Assets/Ultimate Gems and Coins _Vol1/Coins/Prefabs/Simple/Pref_simple_gold_coin_8.prefab
+  uploadId: 618795

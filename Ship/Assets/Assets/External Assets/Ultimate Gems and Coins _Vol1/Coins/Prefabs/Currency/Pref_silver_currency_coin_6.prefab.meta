@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 40d57fe951c768045a42163382156103
+labels:
+- Coin
+- Silver
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 125635
+  packageName: Ultimate Gems and Coins Pack
+  packageVersion: 1.0
+  assetPath: Assets/Ultimate Gems and Coins _Vol1/Coins/Prefabs/Currency/Pref_silver_currency_coin_6.prefab
+  uploadId: 618795

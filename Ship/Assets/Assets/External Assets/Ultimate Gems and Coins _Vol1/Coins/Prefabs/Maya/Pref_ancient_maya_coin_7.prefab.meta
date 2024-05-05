@@ -1,0 +1,20 @@
+fileFormatVersion: 2
+guid: a0235d80abc2df34c99bcb0fb0e40a7a
+labels:
+- Ancient
+- Antique
+- Coin
+- Maya
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 125635
+  packageName: Ultimate Gems and Coins Pack
+  packageVersion: 1.0
+  assetPath: Assets/Ultimate Gems and Coins _Vol1/Coins/Prefabs/Maya/Pref_ancient_maya_coin_7.prefab
+  uploadId: 618795
