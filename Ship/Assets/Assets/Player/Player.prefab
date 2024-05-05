@@ -111,16 +111,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2485aa0eefc59f4088abe21bfe24335, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerCamera: {fileID: 0}
+  starterShip: {fileID: 8303951675409229562}
+  upgradedShip: {fileID: 3133781756436261088}
   maxSpeed: 1.5
   maxTurnSpeed: 30
   moveAcceleration: 0.001
   turnAcceleration: 0.1
+  interactRange: 3
   accelerateKey: 119
   turnLeftKey: 97
   turnRightKey: 100
-  playerCamera: {fileID: 0}
-  starterShip: {fileID: 8303951675409229562}
-  upgradedShip: {fileID: 3133781756436261088}
+  interactKey: 102
 --- !u!1 &3133781756436261088
 GameObject:
   m_ObjectHideFlags: 0

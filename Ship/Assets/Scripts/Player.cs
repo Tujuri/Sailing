@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -16,15 +17,19 @@ public class Player : MonoBehaviour
     public float maxTurnSpeed;
     public float moveAcceleration;
     public float turnAcceleration;
+    public float interactRange;
     
     [Header("Controls")]
     public KeyCode accelerateKey;
     public KeyCode turnLeftKey;
     public KeyCode turnRightKey;
+    public KeyCode interactKey;
     
     private Rigidbody2D body;
     private float moveSpeed;
     private float turnSpeed;
+    
+    private List<Interactable> interactables = new();
 
     private void Awake()
     {
@@ -34,6 +39,7 @@ public class Player : MonoBehaviour
     private void Update()
     {
         Controls();
+        Interaction();
     }
 
     private void LateUpdate()
@@ -45,6 +51,7 @@ public class Player : MonoBehaviour
     private void FixedUpdate()
     {
         Movement();
+        SortInteractables();
     }
 
     private void Controls()
@@ -65,5 +72,26 @@ public class Player : MonoBehaviour
     {
         body.MovePosition(body.position + (Vector2)transform.up * (moveSpeed * Time.fixedDeltaTime));
         body.MoveRotation(body.rotation + turnSpeed * Time.fixedDeltaTime);
+    }
+
+    private void SortInteractables()
+    {
+        interactables = GameManager.interactables.ToList();
+        interactables.Sort((a, b) => 
+            Vector2.Distance(a.transform.position, transform.position)
+                .CompareTo(Vector2.Distance(b.transform.position, transform.position)));
+
+        foreach (var interactable in interactables)
+            interactable.ShowText(interactable == interactables[0] &&
+                                  Vector2.Distance(interactable.transform.position, transform.position) <= interactRange);
+    }
+
+    private void Interaction()
+    {
+        if(!Input.GetKeyDown(interactKey) || interactables.Count == 0) 
+            return;
+
+        if(Vector2.Distance(interactables[0].transform.position, transform.position) <= interactRange) 
+            interactables[0].Trigger();
     }
 }
