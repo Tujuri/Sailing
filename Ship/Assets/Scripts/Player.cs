@@ -24,6 +24,7 @@ public class Player : MonoBehaviour
     public KeyCode turnLeftKey;
     public KeyCode turnRightKey;
     public KeyCode interactKey;
+    [HideInInspector] public bool isLocked;
     
     private Rigidbody2D body;
     private float moveSpeed;
@@ -56,13 +57,13 @@ public class Player : MonoBehaviour
 
     private void Controls()
     {
-        moveSpeed = Input.GetKey(accelerateKey) ? 
+        moveSpeed = !isLocked && Input.GetKey(accelerateKey) ? 
             Mathf.MoveTowards(moveSpeed, maxSpeed, moveAcceleration) : 
             Mathf.MoveTowards(moveSpeed, 0, moveAcceleration);
         
-        if(Input.GetKey(turnLeftKey))
+        if(!isLocked && Input.GetKey(turnLeftKey))
             turnSpeed = Mathf.MoveTowards(turnSpeed, maxTurnSpeed, turnAcceleration);
-        else if(Input.GetKey(turnRightKey))
+        else if(!isLocked && Input.GetKey(turnRightKey))
             turnSpeed = Mathf.MoveTowards(turnSpeed, -maxTurnSpeed, turnAcceleration);
         else
             turnSpeed = Mathf.MoveTowards(turnSpeed, 0, turnAcceleration);
@@ -88,7 +89,7 @@ public class Player : MonoBehaviour
 
     private void Interaction()
     {
-        if(!Input.GetKeyDown(interactKey) || interactables.Count == 0) 
+        if(isLocked || !Input.GetKeyDown(interactKey) || interactables.Count == 0) 
             return;
 
         if(Vector2.Distance(interactables[0].transform.position, transform.position) <= interactRange) 

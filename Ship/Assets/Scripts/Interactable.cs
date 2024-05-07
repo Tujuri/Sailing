@@ -22,6 +22,18 @@ public class Interactable : MonoBehaviour
     public void Trigger()
     {
         OnInteract?.Invoke();
+
+        if (TryGetComponent(out LootTable lootTable))
+        {
+            GameManager.LockPlayer(true);
+            
+            var coinFlip = Instantiate(Resources.Load<GameObject>($"HUD/CoinFlip_Loot"), 
+                GameManager.HUD, false);
+            var coinRenderers = coinFlip.transform.GetChild(coinFlip.transform.childCount - 1);
+            coinRenderers.SetParent(null);
+            
+            coinFlip.GetComponent<CoinFlip>().Initialize(lootTable, coinRenderers);
+        }
     }
 
     public void ShowText(bool show)

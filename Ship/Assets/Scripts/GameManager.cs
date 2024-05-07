@@ -8,6 +8,8 @@ using UnityEngine.Serialization;
 public class GameManager : MonoBehaviour
 {
     public static GameManager manager;
+    public static Transform HUD;
+    public static Player player;
     public static List<Interactable> interactables = new();
 
     [Header("Main Menu")] 
@@ -39,5 +41,20 @@ public class GameManager : MonoBehaviour
     private static void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         SceneManager.sceneLoaded -= OnSceneLoaded;
+
+        GetReferences();
+    }
+
+    private static void GetReferences()
+    {
+        if(GameObject.Find("HUD"))
+            HUD = GameObject.Find("HUD").transform;
+        if(GameObject.Find("Player"))
+            player = GameObject.Find("Player").GetComponent<Player>();
+    }
+
+    public static void LockPlayer(bool isLocked)
+    {
+        player.isLocked = isLocked;
     }
 }
