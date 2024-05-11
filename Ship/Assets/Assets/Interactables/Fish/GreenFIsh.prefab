@@ -95,6 +95,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8859735964924337850}
+  - component: {fileID: 8835909096134897170}
+  - component: {fileID: 4227359172969134643}
   m_Layer: 0
   m_Name: GreenFIsh
   m_TagString: Untagged
@@ -119,6 +121,56 @@ Transform:
   - {fileID: 9173518863932802740}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8835909096134897170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4611527087121468231}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98875701922324c4cacdaebd3beadb28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  loot_0:
+    loot: {fileID: 0}
+    minValue: 0
+    maxValue: 0
+  loot_1:
+    loot: {fileID: 0}
+    minValue: 0
+    maxValue: 0
+  loot_2:
+    loot: {fileID: 0}
+    minValue: 0
+    maxValue: 0
+  loot_3:
+    loot: {fileID: 0}
+    minValue: 0
+    maxValue: 0
+  loot_4:
+    loot: {fileID: 0}
+    minValue: 0
+    maxValue: 0
+  loot_5:
+    loot: {fileID: 0}
+    minValue: 0
+    maxValue: 0
+--- !u!114 &4227359172969134643
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4611527087121468231}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7934ca62b13ce4459dd5a7e7607dd4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactText: Tangello
+  textHeight: 0.7
 --- !u!1 &5638279402529006146
 GameObject:
   m_ObjectHideFlags: 0

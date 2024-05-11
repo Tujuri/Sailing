@@ -1,13 +1,19 @@
 fileFormatVersion: 2
-guid: 7819833055736c942b583a3f367899d1
+guid: 8e0014c3c9eba494486391852d5ac534
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1944054995938551939
-    second: sink_0
+      213: 130600029345354424
+    second: Monster1_0
   - first:
-      213: 1724288873920561511
-    second: sink_1
+      213: -648425785678834747
+    second: Monster1_1
+  - first:
+      213: 8560980063234855749
+    second: Monster1_2
+  - first:
+      213: -11594890492368935
+    second: Monster1_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -129,43 +135,22 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: sink_0
+      name: Monster1_1
       rect:
         serializedVersion: 2
-        x: 1370
-        y: 546
-        width: 235
-        height: 71
+        x: 1341
+        y: 905
+        width: 2542
+        height: 1780
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 388adb008bbaafa10800000000000000
-      internalID: 1944054995938551939
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sink_1
-      rect:
-        serializedVersion: 2
-        x: 1432
-        y: 488
-        width: 2491
-        height: 2637
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 761813c5897ede710800000000000000
-      internalID: 1724288873920561511
+      spriteID: 5c3d865fe245007f0800000000000000
+      internalID: -648425785678834747
       vertices: []
       indices: 
       edges: []
@@ -173,7 +158,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: e3bf048a20e352347b4394690cc3c15d
     internalID: 0
     vertices: []
     indices: 
@@ -181,8 +166,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      sink_0: 1944054995938551939
-      sink_1: 1724288873920561511
+      Monster1_0: 130600029345354424
+      Monster1_1: -648425785678834747
+      Monster1_2: 8560980063234855749
+      Monster1_3: -11594890492368935
+      Monster1_4: -429395135
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

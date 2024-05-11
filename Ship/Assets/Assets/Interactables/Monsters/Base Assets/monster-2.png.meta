@@ -1,13 +1,16 @@
 fileFormatVersion: 2
-guid: dc975dd25fdb3454cbafc880376c720e
+guid: 25fb514ec260cd8408a3feb1a733721b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7717378374405357365
-    second: monster-4_0
+      213: 6631762193808863585
+    second: monster-2_0
   - first:
-      213: -3521471499480170055
-    second: monster-4_1
+      213: -8272218510466675312
+    second: monster-2_1
+  - first:
+      213: 3644541455067341335
+    second: monster-2_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -129,43 +132,22 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: monster-4_0
+      name: monster-2_1
       rect:
         serializedVersion: 2
-        x: 959
-        y: 1403
-        width: 235
-        height: 71
+        x: 1242
+        y: 907
+        width: 2545
+        height: 1818
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 53f76bb3eb2a91b60800000000000000
-      internalID: 7717378374405357365
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: monster-4_1
-      rect:
-        serializedVersion: 2
-        x: 1225
-        y: 1345
-        width: 2917
-        height: 1237
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 9b182da2458312fc0800000000000000
-      internalID: -3521471499480170055
+      spriteID: 09d0933c71d233d80800000000000000
+      internalID: -8272218510466675312
       vertices: []
       indices: 
       edges: []
@@ -173,7 +155,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 61fe9321bdb3ee546bf57d3709336d62
     internalID: 0
     vertices: []
     indices: 
@@ -181,8 +163,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      monster-4_0: 7717378374405357365
-      monster-4_1: -3521471499480170055
+      monster-2_0: 6631762193808863585
+      monster-2_1: -8272218510466675312
+      monster-2_2: 3644541455067341335
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
