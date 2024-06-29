@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
     public static Player player;
     public static List<Interactable> interactables = new();
 
+    public static int currency = 0;
+
     [Header("Main Menu")] 
     public Interactable continueInteractable;
     public Interactable newGameInteractable;
@@ -56,5 +58,19 @@ public class GameManager : MonoBehaviour
     public static void LockPlayer(bool isLocked)
     {
         player.isLocked = isLocked;
+    }
+
+    // Method to add currency (Tyson Added)
+    public static void AddCurrency(int amount)
+    {
+        currency += amount;
+        Debug.Log($"Currency updated: +{amount}, Total: {currency}");
+    }
+
+    // Method to subtract currency (if Tyson Added)
+    public static void SubtractCurrency(int amount)
+    {
+        currency -= amount;
+        Debug.Log($"Currency updated: -{amount}, Total: {currency}");
     }
 }
