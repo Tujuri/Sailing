@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
     public static int currency = 0;
     public static GameObject inventoryPanel;
 
-    [Header("Main Menu")] 
+    [Header("Main Menu")]
     public Interactable continueInteractable;
     public Interactable newGameInteractable;
     public Interactable settingsInteractable;
@@ -36,11 +36,11 @@ public class GameManager : MonoBehaviour
     public void LoadScene(string sceneName)
     {
         interactables.Clear();
-        
+
         SceneManager.LoadScene(sceneName);
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
-    
+
     private static void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         SceneManager.sceneLoaded -= OnSceneLoaded;
@@ -50,9 +50,9 @@ public class GameManager : MonoBehaviour
 
     private static void GetReferences()
     {
-        if(GameObject.Find("HUD"))
+        if (GameObject.Find("HUD"))
             HUD = GameObject.Find("HUD").transform;
-        if(GameObject.Find("Player"))
+        if (GameObject.Find("Player"))
             player = GameObject.Find("Player").GetComponent<Player>();
     }
 
@@ -73,5 +73,18 @@ public class GameManager : MonoBehaviour
     {
         currency -= amount;
         Debug.Log($"Currency updated: -{amount}, Total: {currency}");
+    }
+
+    public static void RegisterSystem(GameObject system, int ID)
+    {
+        switch (ID)
+        {
+            case 0:
+                inventoryPanel = system;
+                break;
+            default:
+                Debug.LogError("Invalid system ID: " + ID + " Object name: " + system.name);
+                break;
+        }
     }
 }

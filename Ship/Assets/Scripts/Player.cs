@@ -24,7 +24,7 @@ public class Player : MonoBehaviour
     public KeyCode turnLeftKey;
     public KeyCode turnRightKey;
     public KeyCode interactKey;
-    public KeyCode inventory;
+    public KeyCode inventory = KeyCode.I;
     [HideInInspector] public bool isLocked;
     
     private Rigidbody2D body;
@@ -68,6 +68,9 @@ public class Player : MonoBehaviour
             turnSpeed = Mathf.MoveTowards(turnSpeed, -maxTurnSpeed, turnAcceleration);
         else
             turnSpeed = Mathf.MoveTowards(turnSpeed, 0, turnAcceleration);
+
+        if (Input.GetKeyDown(inventory))
+            ToggleInventory();
     }
 
     private void Movement()
@@ -99,6 +102,9 @@ public class Player : MonoBehaviour
 
     private void ToggleInventory()
     {
-        //if(GameManager.)
+        if(GameManager.inventoryPanel.activeInHierarchy)
+            GameManager.inventoryPanel.SetActive(false);
+        else
+            GameManager.inventoryPanel.SetActive(true);
     }
 }
