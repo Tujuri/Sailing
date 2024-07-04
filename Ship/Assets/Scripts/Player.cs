@@ -7,18 +7,18 @@ using UnityEngine.Serialization;
 
 public class Player : MonoBehaviour
 {
-    [Header("Components")] 
+    [Header("Components")]
     public Camera playerCamera;
     public GameObject starterShip;
     public GameObject upgradedShip;
-    
+
     [Header("Parameters")]
     public float maxSpeed;
     public float maxTurnSpeed;
     public float moveAcceleration;
     public float turnAcceleration;
     public float interactRange;
-    
+
     [Header("Controls")]
     public KeyCode accelerateKey;
     public KeyCode turnLeftKey;
@@ -26,11 +26,11 @@ public class Player : MonoBehaviour
     public KeyCode interactKey;
     public KeyCode inventory = KeyCode.I;
     [HideInInspector] public bool isLocked;
-    
+
     private Rigidbody2D body;
     private float moveSpeed;
     private float turnSpeed;
-    
+
     private List<Interactable> interactables = new();
 
     private void Awake()
@@ -46,7 +46,7 @@ public class Player : MonoBehaviour
 
     private void LateUpdate()
     {
-        if(playerCamera != null)
+        if (playerCamera != null)
             playerCamera.transform.position = new Vector3(transform.position.x, transform.position.y, playerCamera.transform.position.z);
     }
 
@@ -58,13 +58,13 @@ public class Player : MonoBehaviour
 
     private void Controls()
     {
-        moveSpeed = !isLocked && Input.GetKey(accelerateKey) ? 
-            Mathf.MoveTowards(moveSpeed, maxSpeed, moveAcceleration) : 
+        moveSpeed = !isLocked && Input.GetKey(accelerateKey) ?
+            Mathf.MoveTowards(moveSpeed, maxSpeed, moveAcceleration) :
             Mathf.MoveTowards(moveSpeed, 0, moveAcceleration);
-        
-        if(!isLocked && Input.GetKey(turnLeftKey))
+
+        if (!isLocked && Input.GetKey(turnLeftKey))
             turnSpeed = Mathf.MoveTowards(turnSpeed, maxTurnSpeed, turnAcceleration);
-        else if(!isLocked && Input.GetKey(turnRightKey))
+        else if (!isLocked && Input.GetKey(turnRightKey))
             turnSpeed = Mathf.MoveTowards(turnSpeed, -maxTurnSpeed, turnAcceleration);
         else
             turnSpeed = Mathf.MoveTowards(turnSpeed, 0, turnAcceleration);
@@ -82,7 +82,7 @@ public class Player : MonoBehaviour
     private void SortInteractables()
     {
         interactables = GameManager.interactables.ToList();
-        interactables.Sort((a, b) => 
+        interactables.Sort((a, b) =>
             Vector2.Distance(a.transform.position, transform.position)
                 .CompareTo(Vector2.Distance(b.transform.position, transform.position)));
 
@@ -93,18 +93,33 @@ public class Player : MonoBehaviour
 
     private void Interaction()
     {
-        if(isLocked || !Input.GetKeyDown(interactKey) || interactables.Count == 0) 
+        if (isLocked || !Input.GetKeyDown(interactKey) || interactables.Count == 0)
             return;
 
-        if(Vector2.Distance(interactables[0].transform.position, transform.position) <= interactRange) 
+        if (Vector2.Distance(interactables[0].transform.position, transform.position) <= interactRange)
             interactables[0].Trigger();
     }
 
     private void ToggleInventory()
     {
-        if(GameManager.inventoryPanel.activeInHierarchy)
-            GameManager.inventoryPanel.SetActive(false);
+        if (IsInventoryOpen())
+            CloseInventory();
         else
-            GameManager.inventoryPanel.SetActive(true);
+            OpenInventory();
+    }
+
+    private void OpenInventory()
+    {
+        GameManager.inventoryPanel.SetActive(true);
+    }
+
+    private void CloseInventory()
+    {
+        GameManager.inventoryPanel.SetActive(false);
+    }
+
+    private bool IsInventoryOpen()
+    {
+        return GameManager.inventoryPanel.activeInHierarchy;
     }
 }
