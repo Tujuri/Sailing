@@ -1,37 +1,37 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using DG.Tweening;
 
-public class CoinFlip : MonoBehaviour, IPointerClickHandler
+public class CoinFlip : MonoBehaviour
 {
-    public Transform[] coins; // Array of coin transforms for the flip effect
-    public InventoryManager inventoryManager; // Reference to the InventoryManager script
+    public Transform[] coins; // Array of coin transforms for flipping animation
 
-    private List<Transform> coinFlips = new(); // List to store the coin flip transforms
+    private InventoryManager inventoryManager;
+    private List<Transform> coinFlips = new(); // List of coin flip transforms
 
-    public void Initialize(InventoryManager inventoryManager, Transform coinRenderers)
+    public void Initialize(InventoryManager inventoryManager)
     {
         this.inventoryManager = inventoryManager;
 
-        // Setup the coinRenderers for flipping
         for (var i = 0; i < coins.Length; i++)
         {
-            coinFlips.Add(coinRenderers.GetChild(i).GetChild(0));
+            coinFlips.Add(coins[i].GetChild(0));
         }
     }
 
-    public void OnPointerClick(PointerEventData eventData)
+    public void FlipCoin(LootTable lootTable)
     {
-        // Handle coin flip when clicking on the coin
-        FlipCoin(coins[0]);  // Assuming we flip the first coin for simplicity
-    }
+        var lootOptions = lootTable.lootOptions;
+        if (lootOptions.Length == 0) return; // No loot options available
 
-    public void FlipCoin(Transform coin)
-    {
+        var chosenLootOption = ChooseLootOption(lootOptions);
+        var item = CreateItemFromLoot(chosenLootOption);
+
+        AddItemToInventory(item);
+
         var result = UnityEngine.Random.value > 0.5f;
-        var coinFlip = coinFlips[Array.IndexOf(coins, coin)];
+        var coinFlip = coinFlips[Array.IndexOf(coins, coins[0])]; // Choose the first coin flip for demonstration
 
         const float duration = 0.6f;
         const int flips = 2;
@@ -43,40 +43,49 @@ public class CoinFlip : MonoBehaviour, IPointerClickHandler
             {
                 coinFlip.localRotation = Quaternion.Euler(new Vector3(0, result ? 0 : 180, 0));
                 Debug.Log(result ? "Heads" : "Tails");
-
-                // Get the loot based on the result of the coin flip
-                Loot lootData = GetLootBasedOnResult(result);
-                // Add the loot to the inventory
-                AddLootToInventory(lootData);
             });
-
-        // Remove the EventTrigger component, as we use IPointerClickHandler
-        Destroy(coin.GetComponent<EventTrigger>());
     }
 
-    private Loot GetLootBasedOnResult(bool result)
+    private LootOption ChooseLootOption(LootOption[] lootOptions)
     {
-        // Determine loot data based on the result of the coin flip
-        // Replace with your actual logic to get loot data
-        return result ? /* Get heads loot */ null : /* Get tails loot */ null;
+        // Example of choosing a random loot option; adjust as needed
+        int randomIndex = UnityEngine.Random.Range(0, lootOptions.Length);
+        return lootOptions[randomIndex];
     }
 
-    private void AddLootToInventory(Loot lootData)
+    private Item CreateItemFromLoot(LootOption lootOption)
     {
-        // Example coordinates, you should calculate where to place the item
-        int x = UnityEngine.Random.Range(0, inventoryManager.width);
-        int y = UnityEngine.Random.Range(0, inventoryManager.height);
-        inventoryManager.AddItemToSlot(x, y, lootData);
+        var item = new Item
+        {
+            loot = lootOption.loot,
+            count = UnityEngine.Random.Range(lootOption.minValue, lootOption.maxValue + 1)
+        };
+        return item;
+    }
+
+    private void AddItemToInventory(Item item)
+    {
+        // Example: Add item to the first available slot in the inventory
+        for (int x = 0; x < inventoryManager.width; x++)
+        {
+            for (int y = 0; y < inventoryManager.height; y++)
+            {
+                if (inventoryManager.GetItem(x, y) == null)
+                {
+                    inventoryManager.AddItemToSlot(x, y, item);
+                    return;
+                }
+            }
+        }
+
+        Debug.Log("No available slots in the inventory.");
     }
 
     private void OnDestroy()
     {
         GameManager.LockPlayer(false);
 
-        // Remove the coin renderers when CoinFlip is destroyed
-        if (transform.childCount > 0)
-        {
-            Destroy(transform.GetChild(0).gameObject);
-        }
+        // Destroy the CoinFlip object
+        Destroy(gameObject);
     }
 }

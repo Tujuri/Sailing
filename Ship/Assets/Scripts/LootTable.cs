@@ -1,22 +1,17 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class LootTable : MonoBehaviour
 {
-    public LootOption loot_0;
-    public LootOption loot_1;
-    public LootOption loot_2;
-    public LootOption loot_3;
-    public LootOption loot_4;
-    public LootOption loot_5;
-}
+    public LootOption[] lootOptions; // Array of loot options
 
-[Serializable]
-public class LootOption
-{
-    public Loot loot;
-    public int minValue;
-    public int maxValue;
+    // Example method to get a random loot option
+    public LootOption GetRandomLootOption()
+    {
+        if (lootOptions.Length == 0)
+            return null;
+
+        int randomIndex = UnityEngine.Random.Range(0, lootOptions.Length);
+        return lootOptions[randomIndex];
+    }
 }

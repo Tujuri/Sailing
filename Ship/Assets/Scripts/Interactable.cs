@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using TMPro;
 
@@ -33,16 +34,19 @@ public class Interactable : MonoBehaviour
             // Instantiate the CoinFlip and set it up with InventoryManager
             var coinFlip = Instantiate(Resources.Load<GameObject>($"HUD/CoinFlip_Loot"),
                 GameManager.HUD, false);
-            var coinRenderers = coinFlip.transform.GetChild(coinFlip.transform.childCount - 1);
-            coinRenderers.SetParent(null);
+            var coinFlips = coinFlip.GetComponentsInChildren<Transform>(); // Get all coin flip transforms
 
-            coinFlip.GetComponent<CoinFlip>().Initialize(inventoryManager, coinRenderers);
+            var coinRenderer = coinFlips[coinFlips.Length - 1]; // Get the last child transform
+            coinRenderer.SetParent(null);
+
+            coinFlip.GetComponent<CoinFlip>().Initialize(inventoryManager);
+            coinFlip.GetComponent<CoinFlip>().FlipCoin(lootTable);
         }
     }
 
     public void ShowText(bool show)
     {
-        if (string.IsNullOrEmpty(interactText)) // Check for null or empty text
+        if (interactText == "")
             return;
 
         if (show)
@@ -51,11 +55,7 @@ public class Interactable : MonoBehaviour
             {
                 overheadText = Instantiate(Resources.Load<GameObject>($"HUD/OverheadText"),
                     transform.position + Vector3.up * textHeight, Quaternion.identity);
-                var textMeshPro = overheadText.transform.GetChild(0).GetComponent<TMP_Text>();  // Get TMP_Text component
-                if (textMeshPro != null)
-                {
-                    textMeshPro.text = interactText;
-                }
+                overheadText.transform.GetChild(0).GetComponent<TMP_Text>().text = interactText;
             }
         }
         else if (overheadText != null)
