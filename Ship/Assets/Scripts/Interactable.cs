@@ -1,6 +1,8 @@
 using System;
-using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
 using TMPro;
+using UnityEngine;
 
 public class Interactable : MonoBehaviour
 {
@@ -24,17 +26,13 @@ public class Interactable : MonoBehaviour
         if (TryGetComponent(out LootTable lootTable))
         {
             GameManager.LockPlayer(true);
-                      
-            // Instantiate the CoinFlip and set it up with InventoryManager
+
             var coinFlip = Instantiate(Resources.Load<GameObject>($"HUD/CoinFlip_Loot"),
                 GameManager.HUD, false);
-            var coinFlips = coinFlip.GetComponentsInChildren<Transform>(); // Get all coin flip transforms
+            var coinRenderers = coinFlip.transform.GetChild(coinFlip.transform.childCount - 1);
+            coinRenderers.SetParent(null);
 
-            var coinRenderer = coinFlips[coinFlips.Length - 1]; // Get the last child transform
-            coinRenderer.SetParent(null);
-
-            coinFlip.GetComponent<CoinFlip>().Initialize(GameManager.inventoryManager);
-            coinFlip.GetComponent<CoinFlip>().FlipCoin(lootTable);
+            coinFlip.GetComponent<CoinFlip>().Initialize(lootTable, coinRenderers);
         }
     }
 
