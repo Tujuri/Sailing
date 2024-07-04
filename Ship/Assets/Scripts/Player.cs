@@ -31,6 +31,8 @@ public class Player : MonoBehaviour
     private float moveSpeed;
     private float turnSpeed;
 
+    private bool IsInventoryOpen() => GameManager.inventoryPanel.activeInHierarchy;
+
     private List<Interactable> interactables = new();
 
     private void Awake()
@@ -102,10 +104,7 @@ public class Player : MonoBehaviour
 
     private void ToggleInventory()
     {
-        if (IsInventoryOpen())
-            CloseInventory();
-        else
-            OpenInventory();
+        GameManager.inventoryPanel.SetActive(!IsInventoryOpen());
     }
 
     private void OpenInventory()
@@ -116,10 +115,5 @@ public class Player : MonoBehaviour
     private void CloseInventory()
     {
         GameManager.inventoryPanel.SetActive(false);
-    }
-
-    private bool IsInventoryOpen()
-    {
-        return GameManager.inventoryPanel.activeInHierarchy;
     }
 }
