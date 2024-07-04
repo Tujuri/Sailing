@@ -24,13 +24,7 @@ public class Interactable : MonoBehaviour
         if (TryGetComponent(out LootTable lootTable))
         {
             GameManager.LockPlayer(true);
-
-            // Instantiate the InventoryManager and setup the grid
-            var inventoryManagerObject = Instantiate(Resources.Load<GameObject>($"HUD/InventoryManager"),
-                GameManager.HUD, false);
-            var inventoryManager = inventoryManagerObject.GetComponent<InventoryManager>();
-            inventoryManager.InitializeInventory(); // Initialize the inventory grid
-
+                      
             // Instantiate the CoinFlip and set it up with InventoryManager
             var coinFlip = Instantiate(Resources.Load<GameObject>($"HUD/CoinFlip_Loot"),
                 GameManager.HUD, false);
@@ -39,7 +33,7 @@ public class Interactable : MonoBehaviour
             var coinRenderer = coinFlips[coinFlips.Length - 1]; // Get the last child transform
             coinRenderer.SetParent(null);
 
-            coinFlip.GetComponent<CoinFlip>().Initialize(inventoryManager);
+            coinFlip.GetComponent<CoinFlip>().Initialize(GameManager.inventoryManager);
             coinFlip.GetComponent<CoinFlip>().FlipCoin(lootTable);
         }
     }

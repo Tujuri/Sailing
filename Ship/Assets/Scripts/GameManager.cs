@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     public static Transform HUD;
     public static Player player;
     public static List<Interactable> interactables = new();
-
+    public static InventoryManager inventoryManager;
     public static int currency = 0;
 
     [Header("Main Menu")] 

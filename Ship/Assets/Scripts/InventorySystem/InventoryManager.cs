@@ -8,6 +8,12 @@ public class InventoryManager : MonoBehaviour
     public int height = 4; // Height of the inventory grid
     private InventorySlot[,] slots; // 2D array of inventory slots
 
+    private void Awake()
+    {
+        if (GameManager.inventoryManager == null)
+            GameManager.inventoryManager = this;
+    }
+
     public void InitializeInventory()
     {
         slots = new InventorySlot[width, height];
