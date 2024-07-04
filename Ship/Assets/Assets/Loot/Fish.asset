@@ -9,10 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e13803e5f83a7e648aa3b7c6a7d34732, type: 3}
-  m_Name: Fish_01
+  m_Script: {fileID: 11500000, guid: 59437a6101a85d44b95f2a8b07d37d63, type: 3}
+  m_Name: Fish
   m_EditorClassIdentifier: 
-  layoutInInventory: 0
+  layoutInInventory: 1
   lootSprite: {fileID: -4178046375966092550, guid: b9be15eb02b285e41a34e41768e3dc5c, type: 3}
   minValue: 0
   maxValue: 0
