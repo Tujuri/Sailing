@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     public static List<Interactable> interactables = new();
     public static InventoryManager inventoryManager;
     public static int currency = 0;
+    public static GameObject inventoryPanel;
 
     [Header("Main Menu")] 
     public Interactable continueInteractable;

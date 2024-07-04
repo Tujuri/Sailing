@@ -24,6 +24,7 @@ public class Player : MonoBehaviour
     public KeyCode turnLeftKey;
     public KeyCode turnRightKey;
     public KeyCode interactKey;
+    public KeyCode inventory;
     [HideInInspector] public bool isLocked;
     
     private Rigidbody2D body;
@@ -94,5 +95,10 @@ public class Player : MonoBehaviour
 
         if(Vector2.Distance(interactables[0].transform.position, transform.position) <= interactRange) 
             interactables[0].Trigger();
+    }
+
+    private void ToggleInventory()
+    {
+        //if(GameManager.)
     }
 }
