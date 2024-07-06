@@ -124,6 +124,7 @@ MonoBehaviour:
   turnLeftKey: 97
   turnRightKey: 100
   interactKey: 102
+  inventory: 105
   isLocked: 0
 --- !u!114 &5771011318946669392
 MonoBehaviour:
