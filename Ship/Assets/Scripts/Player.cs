@@ -35,9 +35,12 @@ public class Player : MonoBehaviour
 
     private List<Interactable> interactables = new();
 
+    private Scurvy scurvy;
+
     private void Awake()
     {
         body = GetComponent<Rigidbody2D>();
+        scurvy = GetComponent<Scurvy>();  // Get the Scurvy component
     }
 
     private void Update()
