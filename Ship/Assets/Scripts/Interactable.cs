@@ -34,6 +34,9 @@ public class Interactable : MonoBehaviour
 
             coinFlip.GetComponent<CoinFlip>().Initialize(lootTable, coinRenderers);
         }
+
+        overheadText.SetActive(false);
+        gameObject.SetActive(false);
     }
 
     public void ShowText(bool show)

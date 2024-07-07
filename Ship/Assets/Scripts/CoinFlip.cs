@@ -13,6 +13,8 @@ public class CoinFlip : MonoBehaviour
     private Transform coinRenderers;
     private List<Transform> coinFlips = new();
 
+    public static int totalHeads = 0;
+
     public void Initialize(LootTable lootTable, Transform coinRenderers)
     {
         this.lootTable = lootTable;
@@ -37,6 +39,13 @@ public class CoinFlip : MonoBehaviour
             {
                 coinFlip.localRotation = Quaternion.Euler(new Vector3(0, result ? 0 : 180, 0));
                 Debug.Log(result ? "Heads" : "Tails");
+
+                if(result)
+                {
+                    totalHeads++;
+                }
+
+                Debug.Log(totalHeads);
             });
 
         Destroy(coin.GetComponent<EventTrigger>());
@@ -48,5 +57,16 @@ public class CoinFlip : MonoBehaviour
 
         if (coinRenderers != null)
             Destroy(coinRenderers.gameObject);
+    }
+
+    public void ProvideLoot()
+    {
+        totalHeads = 0;
+        Destroy(this.gameObject);
+        //Generate the loot depending on amount of heads
+        //Enable Temporay Inventory for loot to spawn in
+        //Enable main inventory
+        //destroy this game object
+        Debug.Log(totalHeads);
     }
 }

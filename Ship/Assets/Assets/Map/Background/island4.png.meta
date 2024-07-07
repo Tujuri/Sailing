@@ -105,14 +105,14 @@ TextureImporter:
         serializedVersion: 2
         x: 1233
         y: 613
-        width: 2263
-        height: 2084
+        width: 2183
+        height: 2047
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
       spriteID: 9e0c1ec0ca7916d60800000000000000
       internalID: 7881747588081369321
@@ -123,14 +123,15 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: b9bfcfc06c3d07b41bf9d4f4a953752e
     internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      island4_0: 7881747588081369321
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
