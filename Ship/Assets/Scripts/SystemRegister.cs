@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [Serializable]
-public enum Systems { InventoryPanel }
+public enum Systems { InventoryPanel,HomeSettingsMenu,GameSettingsMenu }
 
 public class SystemRegister : MonoBehaviour
 {

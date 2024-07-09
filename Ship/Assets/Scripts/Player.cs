@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Serialization;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -25,6 +26,7 @@ public class Player : MonoBehaviour
     public KeyCode turnRightKey;
     public KeyCode interactKey;
     public KeyCode inventory = KeyCode.I;
+    public KeyCode settings;
     [HideInInspector] public bool isLocked;
 
     private Rigidbody2D body;
@@ -32,6 +34,8 @@ public class Player : MonoBehaviour
     private float turnSpeed;
 
     private bool IsInventoryOpen() => GameManager.inventoryPanel.activeInHierarchy;
+    private bool IsHomeSettingsMenuOpen() => GameManager.homeSettingsMenu.activeInHierarchy;
+    private bool IsGameSettingsMenuOpen() => GameManager.gameSettingsMenu.activeInHierarchy;
 
     private List<Interactable> interactables = new();
 
@@ -76,6 +80,9 @@ public class Player : MonoBehaviour
 
         if (Input.GetKeyDown(inventory))
             ToggleInventory();
+
+        if (Input.GetKeyDown(settings))
+            ToggleSettingsMenu();
     }
 
     private void Movement()
@@ -119,4 +126,21 @@ public class Player : MonoBehaviour
     {
         GameManager.inventoryPanel.SetActive(false);
     }
+
+    private void ToggleSettingsMenu()
+    {
+        if (SceneManager.GetActiveScene().buildIndex == 0)
+        {
+            GameManager.homeSettingsMenu.SetActive(!IsHomeSettingsMenuOpen());
+            Debug.Log("sceno 0 settings menu triggered");
+        }
+        else
+        {
+            Debug.Log("Game Scene settings menu triggered");
+            GameManager.gameSettingsMenu.SetActive(!IsGameSettingsMenuOpen());
+        }
+    }
+    
+
+   
 }

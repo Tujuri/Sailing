@@ -15,6 +15,9 @@ public class GameManager : MonoBehaviour
     public static int currency = 0;
     public static GameObject inventoryPanel;
 
+    public static GameObject homeSettingsMenu;
+    public static GameObject gameSettingsMenu;
+
     [Header("Main Menu")]
     public Interactable continueInteractable;
     public Interactable newGameInteractable;
@@ -81,6 +84,12 @@ public class GameManager : MonoBehaviour
         {
             case 0:
                 inventoryPanel = system;
+                break;
+            case 1:
+                homeSettingsMenu = system;
+                break;
+            case 2:
+                gameSettingsMenu = system;
                 break;
             default:
                 Debug.LogError("Invalid system ID: " + ID + " Object name: " + system.name);
