@@ -71,7 +71,7 @@ public class GameManager : MonoBehaviour
         Debug.Log($"Currency updated: +{amount}, Total: {currency}");
     }
 
-    // Method to subtract currency (if Tyson Added)
+    // Method to subtract currency (Tyson Added)
     public static void SubtractCurrency(int amount)
     {
         currency -= amount;

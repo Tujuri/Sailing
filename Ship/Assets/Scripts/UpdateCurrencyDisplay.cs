@@ -17,11 +17,15 @@ public class CurrencyDisplay : MonoBehaviour
             // Update the text field with current currency value from GameManager
             textField.text = $"Currency: {GameManager.currency}";
         }
+        else
+        {
+            Debug.LogWarning("TextField is not assigned in the CurrencyDisplay script.");
+        }
     }
 
     private void Update()
     {
         // Update the currency display continuously (optional)
-        UpdateCurrencyDisplay();
+        //UpdateCurrencyDisplay();
     }
 }
